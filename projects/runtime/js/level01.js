@@ -41,7 +41,7 @@ var level01 = function (window) {
         // TODO 6 and on go here
         // BEGIN EDITING YOUR CODE HERE
         function createSawBlade(x, y){
-            var hitZoneSize = 25;
+            var hitZoneSize = 20;
             var damageFromObstacle = 10;
             var sawBladeHitZone = game.createObstacle(hitZoneSize, damageFromObstacle);
             
@@ -55,14 +55,14 @@ var level01 = function (window) {
             obstacleImage.x = -25;
             obstacleImage.y = -25;
         }
-            createSawBlade(1100, groundY - 150);
-            createSawBlade(1500,  groundY - 150);
-            createSawBlade(900,  groundY - 150);
-        
+            createSawBlade(1100, groundY - 10);
+            createSawBlade(1500,  groundY - 100);
+            createSawBlade(900,  groundY - 100);
+            createSawBlade(1300,  groundY - 10);
    
         function createBarrel(x, y){
             var hitZoneSize = 25;
-            var damageFromObstacle = 50;
+            var damageFromObstacle = 30;
             var barrelHitZone = game.createObstacle(hitZoneSize, damageFromObstacle);
             barrelHitZone.x = x;
             barrelHitZone.y = y;
@@ -75,9 +75,25 @@ var level01 = function (window) {
             obstacleImage.y = -25;
         }
 
-        createBarrel(2400, groundY - 100);
+        createBarrel(2000, groundY - 150);
+        createBarrel(2200, groundY - 10);
+        createBarrel(2600, groundY - 10);
         
+            var enemy = game.createGameItem('enemy',25);
+            var redSquare = draw.rect(50,50,'red');
+            redSquare.x = -25;
+            redSquare.y = -25;
+            enemy.addChild(redSquare);
 
+            enemy.x = 400;
+            enemy.y = groundY-50;
+            
+            game.addGameItem(enemy);
+
+            enemy.velocityX = -1;
+            enemy.onPlayerCollision = function() {
+                console.log('The enemy has hit Halle');
+            };
 
         // DO NOT EDIT CODE BELOW HERE
     }
