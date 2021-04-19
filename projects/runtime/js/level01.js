@@ -41,42 +41,42 @@ var level01 = function (window) {
         // TODO 6 and on go here
         // BEGIN EDITING YOUR CODE HERE
         function createSawBlade(x, y){
-             var hitZoneSize = 25;
-        var damageFromObstacle = 10;
-        var sawBladeHitZone = game.createObstacle(hitZoneSize, damageFromObstacle);
+            var hitZoneSize = 25;
+            var damageFromObstacle = 10;
+            var sawBladeHitZone = game.createObstacle(hitZoneSize, damageFromObstacle);
+            
+            sawBladeHitZone.x = x;
+            sawBladeHitZone.y = y;
+            game.addGameItem(sawBladeHitZone);   
+
+
+            var obstacleImage = draw.bitmap('img/sawblade.png');
+            sawBladeHitZone.addChild(obstacleImage);
+            obstacleImage.x = -25;
+            obstacleImage.y = -25;
+        }
+            createSawBlade(1100, groundY - 150);
+            createSawBlade(1500,  groundY - 150);
+            createSawBlade(900,  groundY - 150);
         
-        sawBladeHitZone.x = x;
-        sawBladeHitZone.y = y;
-        game.addGameItem(sawBladeHitZone);   
+   
+        function createBarrel(x, y){
+            var hitZoneSize = 25;
+            var damageFromObstacle = 50;
+            var barrelHitZone = game.createObstacle(hitZoneSize, damageFromObstacle);
+            barrelHitZone.x = x;
+            barrelHitZone.y = y;
+            game.addGameItem(barrelHitZone);   
 
 
-        var obstacleImage = draw.bitmap('img/sawblade.png');
-        sawBladeHitZone.addChild(obstacleImage);
-        obstacleImage.x = -25;
-        obstacleImage.y = -25;
+            var obstacleImage = draw.bitmap('img/barrel.png');
+            barrelHitZone.addChild(obstacleImage);
+            obstacleImage.x = -25;
+            obstacleImage.y = -25;
         }
 
-
-        createSawBlade(500,100);
-        createSawBlade(100,100);
-        createSawBlade(100,100);
+        createBarrel(2400, groundY - 100);
         
-        function createMyObsticale(x,y) {
-         var hitZoneSize = 25;
-        var damageFromObstacle = 0;
-        var sawBladeHitZone = game.createObstacle(hitZoneSize, damageFromObstacle);
-        
-        sawBladeHitZone.x = x;
-        sawBladeHitZone.y = y;
-        game.addGameItem(sawBladeHitZone);   
-
-
-        var obstacleImage = draw.bitmap('img/sawblade.png');
-        sawBladeHitZone.addChild(obstacleImage);
-        obstacleImage.x = -25;
-        obstacleImage.y = -25;
-        };
-    createMyObstacle(100,200);
 
 
         // DO NOT EDIT CODE BELOW HERE
