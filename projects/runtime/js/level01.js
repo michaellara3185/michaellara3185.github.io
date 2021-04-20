@@ -85,7 +85,7 @@ var level01 = function (window) {
             redSquare.y = -25;
             enemy.addChild(redSquare);
 
-            enemy.x = 400;
+            enemy.x = 600;
             enemy.y = groundY-50;
             
             game.addGameItem(enemy);
@@ -93,8 +93,12 @@ var level01 = function (window) {
             enemy.velocityX = -1;
             enemy.onPlayerCollision = function() {
                 console.log('The enemy has hit Halle');
+                game.changeIntegrity(-10);
+                console.log("Halle has hit the enemy");
+                
             };
-
+            game.increaseScore(100);
+            
         // DO NOT EDIT CODE BELOW HERE
     }
 };
